@@ -1,0 +1,109 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #f0f8ff;
+}
+
+header {
+    background-color: rgb(173, 211, 211);
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 3em;
+    min-height: 100px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 30% 1fr;
+}
+
+.details-div {
+    text-align: center;
+    background-color: #b7bdc1;
+}
+
+.details-div .win-div p{
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.details-div .win-div #player-X{
+    color: #ff0033;
+}
+
+.details-div .win-div #player-O{
+    color: #00ff04;
+}
+
+.details-div button{
+    font-weight: bold;
+    width: 70%;
+    padding: 10px;
+    margin-block: 5px;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    box-shadow: 3px 3px 4px rgb(68, 68, 68);
+}
+
+.details-div .back-button{
+    background-color: #00ff04;
+}
+.details-div .back-button:hover {
+    background-color: #08d00b;
+}
+.details-div .back-button:active {
+    background-color: #0f8511;
+}
+
+.details-div .repeat-button {
+    background-color: #ff0033;
+}
+.details-div .repeat-button:hover {
+    background-color: #cf082f;
+}
+.details-div .repeat-button:active {
+    background-color: #aa0b2b;
+}
+
+.grid-container .play-div #player-turn{
+    text-align: center;
+    padding: 20px;
+    background-color: #000000;
+    color: hsl(90, 100%, 50%);
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    border-radius: 10px;
+}
+
+.grid-container .play-div .div-buttons{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    min-height: 400px;
+    background-color: #828e94;
+    border-radius: 10px;
+}
+
+.div-buttons button {
+    background-color: #999ea1;
+    border: solid;
+    border-radius: 10px;
+    font-size: 2rem;
+}
+
+.div-buttons button:hover {
+    background-color: #757778;
+}
+
+.div-buttons button:active {
+    background-color: #626263;
+}

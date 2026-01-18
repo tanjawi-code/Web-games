@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #360d25;
+}
+
+header {
+    margin-bottom: 50px;
+}
+
+h1 {
+    text-align: center;
+    color: #00a6ff;
+}
+
+section div {
+    width: 150px;
+}
+
+section img {
+    width: 100%;
+}
+
+p {
+    text-align: center;
+    font-size: 1.1em;
+    color: rgb(68, 255, 0);
+}
+
+main .gird-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}

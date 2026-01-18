@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/styleXO.css">
+</head>
+<body>
+    <header>
+        <h1>XO Game</h1>
+    </header>
+    
+    <main class="grid-container">
+        <div class="details-div">
+            <div class="win-div">
+                <p id="player-X">X = 0</p>
+                <p id="player-O">O = 0</p>
+            </div>
+
+            <div><button onclick="back()" class="back-button">Back</button></div>
+            <div><button onclick="repeat()" class="repeat-button">Repeat the game</button></div>
+        </div>
+            
+        <div class="play-div">
+            <p id="player-turn">Turn</p>
+
+            <div class="div-buttons">
+                <button id="button1" onclick="play('1')"></button>
+                <button id="button2" onclick="play('2')"></button>
+                <button id="button3" onclick="play('3')"></button>
+                <button id="button4" onclick="play('4')"></button>
+                <button id="button5" onclick="play('5')"></button>
+                <button id="button6" onclick="play('6')"></button>
+                <button id="button7" onclick="play('7')"></button>
+                <button id="button8" onclick="play('8')"></button>
+                <button id="button9" onclick="play('9')"></button>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+
+    </footer>
+
+    <script src="js/XOJS.js"></script>
+</body>
+</html>
