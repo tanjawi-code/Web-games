@@ -1,0 +1,74 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --text-size: 1.2rem;
+}
+
+h1 {
+    color: #7fff00;
+    text-align: center;
+    height: 80px;
+    background-color: hsla(0, 5%, 16%, 0.751);
+}
+
+main {
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.play-section #inputs input {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+/* choice section */
+
+h2 {
+    color: #ff0000;
+    margin-bottom: 20px;
+}
+
+.choice-section p {
+    line-height: 1.6rem;
+    font-size: 1.2rem;
+}
+
+#categories {
+    padding: 5px;
+    font-size: 1rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    margin: 25px;
+    background-color: rgb(180, 176, 176);
+}
+
+button {
+    padding: 5px 25px;
+    background-color: #7fff00;
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+    font-weight: bold;
+    font-size: 1.5rem;
+    font-style: italic;
+    border-radius: 15px;
+    box-shadow: 3px 3px 4px gray;
+}
+
+button:hover {
+    background-color: #6dd208;
+}
+
+button:active {
+    background-color: #57a706;
+}

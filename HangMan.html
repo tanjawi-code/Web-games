@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/styleHangMan.css">
+</head>
+<body>
+    <header>
+        <h1>Hang Man Game</h1>
+    </header>
+    
+    <main>
+        <section class="choice-section">
+            <h2>Choose your category:</h2>
+            <p>Each category has 10 words.</p>
+            <p>Once you select your category, you'll get a random word out of 10 words.</p>
+            <p>Win without completing the body of the Hang man by writing the corecct letters of the giving word.</p>
+
+            <select name="" id="categories">
+                <option value="fruits">Fruits</option>
+                <option value="vegetables">Vegetables</option>
+                <option value="cars">Cars</option>
+                <option value="animals">Animals</option>
+                <option value="countries">Countries</option>
+                <option value="cities">Cities</option>
+                <option value="movies">Movies</option>
+                <option value="sports">Sports</option>
+                <option value="colors">Colors</option>
+                <option value="professions">Professions</option>
+            </select>
+
+            <div><button onclick="confirmChoice()">Confirm</button></div>
+            <p id="message"></p>
+        </section>
+
+        <section class="play-section">
+            <h2></h2>
+            <div id="inputs">
+                <div>
+                    <label for="word-target">Target</label>
+                    <input type="text" id="word-target" readonly>
+                </div>
+                <div>
+                    <label for="complete-word">Letter</label>
+                    <input type="text" id="complete-word" maxlength="1">
+                </div>
+            </div>
+
+            <div><button onclick="play()">Submit</button></div>
+
+            <div id="hangMan-image">
+                <img  id="image" src="images/HangManImages/Empty-gallows.png" alt="an empty gallows of the hang man game">
+            </div>
+        </section>
+    </main>
+
+    <script src="js/HangManJS.js"></script>
+</body>
+</html>
