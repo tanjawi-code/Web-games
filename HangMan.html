@@ -12,11 +12,17 @@
     </header>
     
     <main>
-        <section class="choice-section">
-            <h2>Choose your category:</h2>
-            <p>Each category has 10 words.</p>
-            <p>Once you select your category, you'll get a random word out of 10 words.</p>
-            <p>Win without completing the body of the Hang man by writing the corecct letters of the giving word.</p>
+        <section class="hangman-container">
+            <h2>The Hang Man</h2>
+            <div id="hangman-images">
+                <img src="images/HangManImages/Empty-gallows.png" alt="An empty gallows of the hangman game">
+            </div>
+
+            <button id="repeatButton" onclick="repeat()">Repeat</button>
+        </section>
+        
+        <section class="play-container">
+            <h2>Choose your category</h2>
 
             <select name="" id="categories">
                 <option value="fruits">Fruits</option>
@@ -31,27 +37,18 @@
                 <option value="professions">Professions</option>
             </select>
 
-            <div><button onclick="confirmChoice()">Confirm</button></div>
-            <p id="message"></p>
-        </section>
-
-        <section class="play-section">
-            <h2></h2>
-            <div id="inputs">
-                <div>
-                    <label for="word-target">Target</label>
-                    <input type="text" id="word-target" readonly>
-                </div>
-                <div>
-                    <label for="complete-word">Letter</label>
-                    <input type="text" id="complete-word" maxlength="1">
-                </div>
+            <div class="buttons">
+                <button id="confirmChoice" onclick="confirmChoice()">Confirm</button>
+                <button id="checkChoice" onclick="play()">Submit</button>
             </div>
 
-            <div><button onclick="play()">Submit</button></div>
+            <div id="letters">
+                <!-- Genertaing the letters of the random word -->
+            </div>
 
-            <div id="hangMan-image">
-                <img  id="image" src="images/HangManImages/Empty-gallows.png" alt="an empty gallows of the hang man game">
+            <div>
+                <p id="message"></p>
+                <input type="text" id="complete-word" maxlength="1">
             </div>
         </section>
     </main>

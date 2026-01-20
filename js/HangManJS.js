@@ -1,41 +1,60 @@
 const CATEGORIES = {
-    fruits: ["Apple","Banana","Orange","Mango","Pineapple","Strawberry","Grapes","Watermelon","Kiwi","Papaya"],
-    vegetables: ["Carrot","Potato","Tomato","Onion","Cabbage","Spinach","Broccoli","Cauliflower","Lettuce","Peas"],
-    cars: ["Toyota","Honda","Ford","BMW","Mercedes","Audi","Nissan","Hyundai","Kia","Tesla"],
-    countries: ["Morocco","France","Spain","Italy","Germany","Brazil","Canada","Japan","Egypt","India"],
-    cities: ["Paris","London","Tokyo","NewYork","Madrid","Rome","Dubai","Sydney","Istanbul","Cairo"],
-    animals: ["Lion","Tiger","Elephant","Giraffe","Zebra","Monkey","Kangaroo","Dolphin","Bear","Rabbit"],
-    sports: ["Football","Basketball","Tennis","Cricket","Baseball","Hockey","Golf","Rugby","Swimming","Boxing"],
-    movies: ["Titanic","Avatar","Inception","Gladiator","Frozen","Joker","Matrix","Shrek","Rocky","Moana"],
-    professions: ["Doctor","Teacher","Engineer","Lawyer","Nurse","Pilot","Farmer","Chef","Artist","Soldier"],
-    colors: ["Red","Blue","Green","Yellow","Purple","Orange","Black","White","Pink","Brown"]
-}
+  fruits: ["APPLE","BANANA","ORANGE","MANGO","PINEAPPLE","STRAWBERRY","GRAPES","WATERMELON","KIWI","PAPAYA"],
+  vegetables: ["CARROT","POTATO","TOMATO","ONION","CABBAGE","SPINACH","BROCCOLI","CAULIFLOWER","LETTUCE","PEAS"],
+  cars: ["TOYOTA","HONDA","FORD","BMW","MERCEDES","AUDI","NISSAN", "HYUNDAI",  "KIA",  "TESLA"],
+  countries: ["MOROCCO","FRANCE","SPAIN","ITALY","GERMANY","BRAZIL","CANADA","JAPAN","EGYPT","INDIA"],
+  cities: ["PARIS","LONDON","TOKYO","NEWYORK","MADRID","ROME","DUBAI","SYDNEY","ISTANBUL","CAIRO"],
+  animals: ["LION","TIGER","ELEPHANT","GIRAFFE","ZEBRA","MONKEY","KANGAROO","DOLPHIN","BEAR","RABBIT"],
+  sports: ["FOOTBALL","BASKETBALL","TENNIS","CRICKET","BASEBALL","HOCKEY","GOLF","RUGBY","SWIMMING","BOXING"],
+  movies: ["TITANIC","AVATAR","INCEPTION","GLADIATOR","FROZEN","JOKER","MATRIX","SHREK","ROCKY","MOANA"],
+  professions: ["DOCTOR","TEACHER","ENGINEER","LAWYER","NURSE","PILOT","FARMER","CHEF","ARTIST","SOLDIER"],
+  colors: ["RED","BLUE","GREEN","YELLOW","PURPLE","ORANGE","BLACK","WHITE","PINK","BROWN"]
+};
 
+const div_letters = document.getElementById("letters");
 const categories = document.getElementById("categories");
 const message = document.getElementById("message");
+const complete_missing_letters = document.getElementById("complete-word");
+const choiceButton = document.getElementById("confirmChoice");
+const submitLetterButton = document.getElementById("checkChoice");
+const repeatButton = document.getElementById("repeatButton");
+
 let selectedCategory = [];
+let target = [];
 
 function confirmChoice() {
-    let userChoice =  categories.value.toLowerCase();
+    let userChoice = categories.value.toLowerCase();
 
     if (CATEGORIES[userChoice]) {
-        selectedCategory = CATEGORIES[userChoice];
-        message.textContent = "You've chosen your category successfully";
-        message.style.color = "#0b07f0";
+      selectedCategory = CATEGORIES[userChoice];
+      target = [...getRandomWord()];
+      message.textContent = "You've chosen your category successfully";
+      message.style.color = "#0b07f0";
+      choiceButton.style.display = "none";
+      submitLetterButton.style.display = "inline";
     }
 }
 
 function play() {
-    if (selectedCategory.length === 0) {
+    for (let x = 0; x < target.length; x++) {
+          let letter = document.createElement("p");
+          letter.textContent = target[x];
+          letter.style.borderBottom = "5px";
 
+          document.getElementById("letters").append(letter);
     }
-    else {
-        let target = getRandomWord();
-    }
+}
+
+function repeat() {
+
 }
 
 // Get a random word from the select category.
 function getRandomWord() {
     const index = Math.floor(Math.random() * selectedCategory.length);
     return selectedCategory[index];
+}
+
+function getRandomLetter(target) {
+    return Math.floor(Math.random() * target.length);
 }
