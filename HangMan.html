@@ -17,8 +17,6 @@
             <div id="hangman-images">
                 <img src="images/HangManImages/Empty-gallows.png" alt="An empty gallows of the hangman game">
             </div>
-
-            <button id="repeatButton" onclick="repeat()">Repeat</button>
         </section>
         
         <section class="play-container">
@@ -37,9 +35,11 @@
                 <option value="professions">Professions</option>
             </select>
 
-            <div class="buttons">
+            <div class="choices">
                 <button id="confirmChoice" onclick="confirmChoice()">Confirm</button>
-                <button id="checkChoice" onclick="play()">Submit</button>
+                <button id="checkLetterButton" onclick="play()">Submit</button>
+                <input type="text" id="complete-word" maxlength="1">
+                <button id="repeatButton" onclick="repeat()">Repeat</button>
             </div>
 
             <div id="letters">
@@ -48,7 +48,6 @@
 
             <div>
                 <p id="message"></p>
-                <input type="text" id="complete-word" maxlength="1">
             </div>
         </section>
     </main>

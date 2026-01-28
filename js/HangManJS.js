@@ -14,39 +14,90 @@ const CATEGORIES = {
 const div_letters = document.getElementById("letters");
 const categories = document.getElementById("categories");
 const message = document.getElementById("message");
+
 const complete_missing_letters = document.getElementById("complete-word");
 const choiceButton = document.getElementById("confirmChoice");
-const submitLetterButton = document.getElementById("checkChoice");
+const submitLetterButton = document.getElementById("checkLetterButton");
 const repeatButton = document.getElementById("repeatButton");
 
 let selectedCategory = [];
 let target = [];
 
+// Confirming the choice of category
 function confirmChoice() {
     let userChoice = categories.value.toLowerCase();
 
     if (CATEGORIES[userChoice]) {
       selectedCategory = CATEGORIES[userChoice];
       target = [...getRandomWord()];
-      message.textContent = "You've chosen your category successfully";
+      message.textContent = `You've chosen your category: ${userChoice.toUpperCase()}`;
       message.style.color = "#0b07f0";
       choiceButton.style.display = "none";
       submitLetterButton.style.display = "inline";
+      complete_missing_letters.style.display = "inline";
+      repeatButton.style.display = "inline";
+
+      displayRandomLetters();
     }
 }
 
-function play() {
+// Part of (confirmChoice) function, it's for applying css properties on all (p).
+function displayRandomLetters() {
     for (let x = 0; x < target.length; x++) {
-          let letter = document.createElement("p");
-          letter.textContent = target[x];
-          letter.style.borderBottom = "5px";
-
-          document.getElementById("letters").append(letter);
+        let letter = document.createElement("p");
+        letter.textContent = target[x];
+        letter.id = x;
+        document.getElementById("letters").append(letter);
     }
+
+    showFirstHint();
 }
 
-function repeat() {
+// Part of (displayRandomLetters) function, it's for showing the first hint (first letter).
+function showFirstHint() {
+    const showFirstLetterId = getRandomLetter(target);
+    const lettersQueury = document.querySelectorAll("#letters p");
 
+    lettersQueury.forEach((element) => {
+        if (element.id != showFirstLetterId) {
+            element.style.color = 'transparent';
+        }
+        else {
+            element.style.color = 'red';
+        }
+    });
+}
+
+// Submit button for entering missing letters.
+function play() {
+    let letter = complete_missing_letters.value.toUpperCase();
+    const lettersQueury = document.querySelectorAll("#letters p");
+
+    lettersQueury.forEach(element => {
+        if (element.textContent === letter) {
+            element.style.color = '#ff0000'
+        }
+        else {
+            // Complete images if the gusses are wrong
+        }
+    })
+}
+
+// Repeat the game
+function repeat() {
+    selectedCategory = []
+    target = []
+    message.textContent = '';
+    complete_missing_letters.value = '';
+    complete_missing_letters.style.display = 'none'
+    submitLetterButton.style.display = 'none'
+    repeatButton.style.display = 'none'
+    choiceButton.style.display = 'inline'
+    
+    // Remove displayed letters.
+    let lettersQueury = document.querySelectorAll("#letters p");
+    lettersQueury.forEach(element => document.getElementById('letters').removeChild(element))
+    lettersQueury = '';
 }
 
 // Get a random word from the select category.
@@ -55,6 +106,7 @@ function getRandomWord() {
     return selectedCategory[index];
 }
 
+// Get the first hint (letter).
 function getRandomLetter(target) {
     return Math.floor(Math.random() * target.length);
 }

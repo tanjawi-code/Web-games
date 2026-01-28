@@ -43,14 +43,16 @@ button {
     border-radius: 10px;
     box-shadow: 3px 3px 4px gray;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-/* play container */
-.play-container button {
     background-color: hsl(90, 100%, 50%);
 }
 
-.play-container #checkChoice {
+/* play container */
+.play-container #checkLetterButton {
+    display: none;
+}
+
+.play-container #repeatButton {
+    background-color: red;
     display: none;
 }
 
@@ -64,10 +66,24 @@ button {
     font-weight: bold;
 }
 
-.play-container #letters p{
-    display: inline;
+.play-container #letters{
     margin-top: var(--margin-top);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: var(--margin-top);
+}
+
+.play-container #letters p{
     font-size: 1.2rem;
+    padding-inline: 5px;
+    color: transparent;
+    border: 3px solid black;
+    min-width: 25px;
+}
+.play-container #letters p{
+    background-color: white;
 }
 
 .play-container input {
@@ -80,10 +96,12 @@ button {
     border-radius: 10px;
     border: solid;
     font-weight: bold;
+    display: none;
 }
 
 /* Image section */
-
-.hangman-container #repeatButton{
-    background-color: red;
+@media (max-width: 768px) {
+    main {
+        grid-template-columns: 1fr;
+    }
 }
