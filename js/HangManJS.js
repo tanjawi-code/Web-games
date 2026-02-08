@@ -67,7 +67,7 @@ function showFirstHint() {
             element.style.color = 'transparent';
         }
         else {
-            element.style.color = '#ff0000';
+            element.style.color = 'rgb(255, 0, 0)';
         }
     });
 }
@@ -80,7 +80,8 @@ function play() {
 
     lettersQueury.forEach(element => {
         if (element.textContent === letter) {
-            element.style.color = '#ff0000'
+            element.style.color = 'rgb(255, 0, 0)'
+            isCompleted++
             isCorrect = true
         }
     })
@@ -92,7 +93,7 @@ function play() {
         trackImagesCount++;
     }
     else {
-        checkWin(lettersQueury)
+        checkWin()
     }
 }
 
@@ -104,18 +105,16 @@ function displayImage (trackImagesCount) {
     if ((images.length - 1) === trackImagesCount) {
         message.textContent = `You lost the game, the image now is completed. Press repeat to play again`
         message.style.color = '#ff0000'
-        submitLetterButton.style.disabled = true
+        submitLetterButton.style.display = 'none'
     }
 }
 
 // Check if the user complete all the letter before completing the Hang Man image. (part of play function)
-function checkWin (lettersQueury) {
-    lettersQueury.forEach((element) => { if (element.style.color == '#ff0000') isCompleted++; })
-    
+function checkWin () {
     if (isCompleted == (target.length - 1)) {
-        message.textContent = `You won the game. You completed the missing word.!!`
-        message.style.color = '#00ff08'
-        submitLetterButton.style.disabled = false
+        message.textContent = `You won the game. You completed the missing word!!`
+        message.style.color = '#0000ff'
+        submitLetterButton.style.display = 'none';
     }
 }
 
